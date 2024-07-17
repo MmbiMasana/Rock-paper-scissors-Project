@@ -1,7 +1,7 @@
 
-function getComputerChoice() {
+function getComputerChoice(comp) {
     const computerpick = ["rock, paper, scissors"]
-    let choice = Math.floor(Math.random() * pick.length)
+    const choice = Math.floor(Math.random() * computerpick.length)
     
     if (choice === 1) {
         return "rock"
@@ -10,9 +10,11 @@ function getComputerChoice() {
     } if (choice === 3) {
         return "scissors"
     } 
-        
+      
+    
 }
-console.log(getComputerChoice())
+
+console.log(getComputerChoice(comp))
 
 //let humanScore = 0
 //let computerScore = 0
