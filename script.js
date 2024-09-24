@@ -1,38 +1,37 @@
 
-function getComputerChoice(comp) {
-    const computerpick = ["rock, paper, scissors"]
-    const choice = Math.floor(Math.random() * computerpick.length)
-    
-    if (choice === 1) {
-        return "rock"
-    } if (choice === 2) {
-        return "paper"
-    } if (choice === 3) {
-        return "scissors"
-    } 
-      
-    
+// Function to get the computer's choice
+function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
 
-console.log(getComputerChoice(comp))
-
-//let humanScore = 0
-//let computerScore = 0
-
-
-function getHumanChoice() {
-    const humanpick = ["rock, paper, scissors"]
-    const choice = prompt("It's your turn to play!")
-
-    if (choice ==="rock") {
-        return "you played rock"
-    } 
-    if (choice === "paper") {
-        return "you played paper"
-    } 
-    if (choice === "scissors") {
-        return "you played scissors"
+// Function to determine the winner
+function determineWinner(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return 'It\'s a tie!';
     }
-
+    
+    if (playerChoice === 'rock') {
+        return (computerChoice === 'scissors') ? 'You win!' : 'Computer wins!';
+    } else if (playerChoice === 'paper') {
+        return (computerChoice === 'rock') ? 'You win!' : 'Computer wins!';
+    } else if (playerChoice === 'scissors') {
+        return (computerChoice === 'paper') ? 'You win!' : 'Computer wins!';
+    }
 }
-console.log(getHumanChoice())
+
+// Function to play a round of Rock, Paper, Scissors
+function playGame() {
+    const playerChoice = prompt('Enter rock, paper, or scissors:').toLowerCase();
+    const computerChoice = getComputerChoice();
+
+    console.log(`You chose: ${playerChoice}`);
+    console.log(`Computer chose: ${computerChoice}`);
+    
+    const result = determineWinner(playerChoice, computerChoice);
+    console.log(result);
+}
+
+// Start the game
+playGame();
